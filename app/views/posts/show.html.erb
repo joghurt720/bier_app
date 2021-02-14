@@ -1,0 +1,49 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="post-user-name">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
+      <p>
+        <%= @post.content %>
+      </p>
+      <div class="post-time">
+        <%= @post.created_at %>
+      </div>
+
+    <% @user.posts.each do |post| %>
+      <div class="posts-index-item">
+         <div class="post-left">
+          <img src="<%= "/user_images/#{post.user.image_name}" %>">
+         </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+          </div>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
+      </div>
+   <% end %>
+
+    <%if @current_user.id == @user.id  %>
+      <div class="post-show-edit">
+       <%=link_to("編集", "/posts/#{@post.id}/edit", class:"underline show-edit-btn") %>
+      </div>
+    <%end%>
+
+      <div class="comments-index">
+        <div class="post-comment-form">
+        <%= form_with model:[@post, @comments], url: "/comment/#{@post.id}/create", method: "POST", remote: true do |f| %>
+        <%= f.text_area :Content, placeholder: "コメントを入力する" %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <%= f.submit "コメント" %>
+       <% end %>
+        </div>
+      </div>
+    <div class="post-comments">
+      <%= render partial: 'comments/comment', locals: { comments: @comments, comenter: @comenter } %>
+    </div>
+  </div>
+ </div>
+
