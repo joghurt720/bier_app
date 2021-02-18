@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  root to: "home#top"
   get "login" => "users#login_form"
   post "login" => "users#login"
   post "logout" => "users#logout"
@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
-  
-  get "/" => "home#top"
+ 
   get "about" => "home#about"
+
+  resources :users
+  resources :posts
 end

@@ -5,14 +5,26 @@
         <h4>飲んだビールを評価する</h4>
       </div>
       <div class="post-wrapper">
-        <%= form_with model:@post, url: posts_create_path, method: 'POST', local: true do |form|%>
+        <%= form_with model:@post, local: true do |form|%>
           <p>名称</p>
-          <%=form.text_field:name%>
-          <p>テキスト</p>
-          <%=form.text_area:content%>
-          <div class="reserve">
+          <%= form.collection_select :bier_id, Bier.all, :id, :name, prompt: "選択してください" %>
+          <p>感想</p>
+          <%= form.text_area:content%>
+          <div class="field" id="star">
+          <%= form.label :evaluation, "星評価：" %>
+          <%= form.number_field :evaluation, step: "0.5" %>
+          #  <script>
+          #   $('#star').raty({
+          #    size     : 36,
+          #    starOff:  '<%= asset_path('star-off.png') %>',
+          #    starOn : '<%= asset_path('star-on.png') %>',
+          #    starHalf: '<%= asset_path('star-half.png') %>',
+          #    scoreName: 'post[evaluation]',   # evaluationカラムへの保存
+          #    half: true,   # 星半分の入力
+          #     });
+          #  </script>
+           </div>
           <%=form.submit "投稿"%>
-          </div>
         <%end%>
       </div>
     </div>

@@ -33,11 +33,10 @@ ActiveRecord::Schema.define(version: 2021_01_30_055132) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.integer "bier_id"
-    t.text "content"
-    t.integer "valuation"
+    t.integer "user_id", null: false
+    t.integer "bier_id", null: false
+    t.text "content", null: false
+    t.float "evaluation", null: false
   end
 
   create_table "regions", force: :cascade do |t|
@@ -55,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_055132) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image_name"
+    t.string "image"
     t.string "password"
   end
 
