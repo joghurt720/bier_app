@@ -1,0 +1,8 @@
+<p>
+  <%= @region %>についての検索結果
+</p>
+
+<% @records.each do |record| %>
+  <%= link_to record.deutsch_name + "（" + record.name + "）", biers_search_path(region: record.name) %>
+<% end %>
+

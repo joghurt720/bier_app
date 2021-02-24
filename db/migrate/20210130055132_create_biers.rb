@@ -9,6 +9,7 @@ class CreateBiers < ActiveRecord::Migration[6.1]
       t.string :explanation
       t.integer :region_id
       t.string :area
+      t.string :image
 
       t.timestamps
     end

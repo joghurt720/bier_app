@@ -1,0 +1,11 @@
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">年齢確認実施中</h1>
+    <p class="lead text-muted">20歳以上ですか？</p>
+    <p>
+      <%= link_to 'はい', users_verified_path, method: :post, class: "btn btn-primary btn-lg mr-3" %>
+      <%= link_to 'いいえ', root_path, class: "btn btn-secondary btn-lg ml-3" %>
+    </p>
+  </div>
+</section>

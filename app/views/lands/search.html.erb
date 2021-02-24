@@ -1,0 +1,13 @@
+<p>
+  <%= @richtung %>についての検索結果
+</p>
+
+<ul class="list-group">
+<% @records.each do |record| %>
+  <li class="list-group-item">
+  <%= link_to record.deutsch_name + "（" + record.land + "）", regions_search_path(region: record.land) %>
+  </li>
+<% end %>
+
+
+ 

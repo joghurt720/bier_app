@@ -14,3 +14,14 @@
  *= require_self
  */
 
+ #image_map {
+  height: 65vh;
+}
+
+#image_east,
+#image_west,
+#image_south,
+#image_north {
+  height: 65vh;
+  display: none;
+}

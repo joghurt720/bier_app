@@ -11,13 +11,13 @@
     <% @user.posts.each do |post| %>
       <div class="posts-index-item">
         <div class="post-left">
-          <img src="<%= "/user_images/#{post.user.image_name}" %>">
+        <%= image_tag post.user.image.to_s %>
         </div>
         <div class="post-right">
           <div class="post-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+            <%= link_to post.user.name, user_path(@user.id) %>
           </div>
-          <%= link_to(post.content, "/posts/#{post.id}") %>
+          <%= link_to(post.content, posts_path) %>
         </div>
       </div>
     <% end %>

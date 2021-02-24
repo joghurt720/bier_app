@@ -1,0 +1,34 @@
+<h1 class="text-center">Beer in Germany</h1>
+
+<div class="row justify-content-center mt-5">
+  <div class="col-8">
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <%= link_to "EAST", lands_search_path(richtung: "east"), id: "link_to_east", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "WEST", lands_search_path(richtung: "west"), id: "link_to_west", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "SOUTH", lands_search_path(richtung: "south"), id: "link_to_south", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "NORTH", lands_search_path(richtung: "north"), id: "link_to_north", class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-5">
+    <div class="images d-flex justify-content-center">
+      <%= image_tag 'map.png', id: "image_map" %>
+      <%= image_tag 'east.png', id: "image_east" %>
+      <%= image_tag 'west.png', id: "image_west" %>
+      <%= image_tag 'south.png', id: "image_south" %>
+      <%= image_tag 'north.png', id: "image_north" %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'lands/top' %>

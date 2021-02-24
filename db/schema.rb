@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_055132) do
     t.string "explanation"
     t.integer "region_id"
     t.string "area"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

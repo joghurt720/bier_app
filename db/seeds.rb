@@ -24,5 +24,6 @@ CSV.foreach('db/bier_id.csv', headers: true) do |row|
     area: row['area'],
     style: row['style'],
     explanation: row['explanation'],
+    image: File.open("app/assets/images/Bierimages/#{row['image']}")
   )
 end

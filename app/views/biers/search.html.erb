@@ -1,0 +1,32 @@
+<p>
+  <%= @region %>についての検索結果
+</p>
+
+<ul class="list-group">
+<% @records.each do |record| %>
+  <li class="list-group-item">
+  <%= record.deutsch_name %>
+  </li>
+<% end %>
+
+<div class="row">
+<% @records.each do |record| %>
+  <div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+      <%= image_tag 'Bierimages/Löwenbräu.jpg', class: "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text">
+        <%= record.deutsch_name %>
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+          </div>
+          <small class="text-muted">9 mins</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

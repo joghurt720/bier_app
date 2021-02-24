@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, {only: [:index, :show, :edit, :update, :logout]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
-  before_action :ensure_correct_user, {only: [:edit, :update]}
-
+  before_action :over_20?, except: [:verify_age, :verified]
+  
   def index
     @users = User.all.order(created_at: :desc)
   end
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
-      image_name: "default_user.jpg",
       password: params[:password]
     )
     if @user.save
@@ -89,6 +88,21 @@ def ensure_correct_user
     flash[:notice] = "権限がありません"
     redirect_to posts_path
   end
+end
+
+def verify_age
+  unless session[:over20].nil?
+    redirect_to lands_top_path
+  end
+  if session[:original_path].nil?
+    session[:original_path] = request.fullpath
+  end
+end
+
+def verified
+  session[:over20] = { value: "yes", expires: 1.years.since }
+  byebug
+  redirect_to (session[:original_path] == "/users/verify_age") ? root_path : session[:original_path]
 end
 
 private 
