@@ -9,6 +9,11 @@ class BiersController < ApplicationController
     @records = search_for_by_name(@name)
   end
 
+  def show
+    @bier=Bier.find(params[:id])
+  end
+
+
   private
   def search_for(region)
     Bier.where(area: region)

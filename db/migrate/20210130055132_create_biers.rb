@@ -4,7 +4,7 @@ class CreateBiers < ActiveRecord::Migration[6.1]
       
       t.string :deutsch_name
       t.string :name
-      t.integer :prozent
+      t.string :prozent
       t.string :style
       t.string :explanation
       t.integer :region_id

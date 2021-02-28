@@ -10,23 +10,24 @@
           <%= form.collection_select :bier_id, Bier.all, :id, :name, prompt: "選択してください" %>
           <p>感想</p>
           <%= form.text_area:content%>
-          <div class="field" id="star">
-          <%= form.label :evaluation, "星評価：" %>
-          <%= form.number_field :evaluation, step: "0.5" %>
-          #  <script>
-          #   $('#star').raty({
-          #    size     : 36,
-          #    starOff:  '<%= asset_path('star-off.png') %>',
-          #    starOn : '<%= asset_path('star-on.png') %>',
-          #    starHalf: '<%= asset_path('star-half.png') %>',
-          #    scoreName: 'post[evaluation]',   # evaluationカラムへの保存
-          #    half: true,   # 星半分の入力
-          #     });
-          #  </script>
-           </div>
-          <%=form.submit "投稿"%>
+          <p>星評価</P>
+           <div class="rating-box mt-3">
+           <div class="main-rating">
+              <div class="ratings mb-3">
+                <span class="fa fa-star-o" id="star"></span>
+                <span class="fa fa-star-o" id="star"></span>
+                <span class="fa fa-star-o" id="star"></span>
+                <span class="fa fa-star-o" id="star"></span>
+                <span class="fa fa-star-o" id="star"></span>
+              </div>
+              <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+             </div>
+            <%= form.hidden_field :evaluation, id: "rating-value" %>
+            </div>
+                  <%=form.submit "投稿"%>
         <%end%>
       </div>
     </div>
   </div>
 </div>
+<%= javascript_pack_tag 'posts/new' %>

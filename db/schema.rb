@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_055132) do
   create_table "biers", force: :cascade do |t|
     t.string "deutsch_name"
     t.string "name"
-    t.integer "prozent"
+    t.string "prozent"
     t.string "style"
     t.string "explanation"
     t.integer "region_id"

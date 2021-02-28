@@ -25,11 +25,10 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
- 
-  get "home/about" => "home#about"
 
   resources :users
   resources :posts
+  resources :biers
 
 
 end
