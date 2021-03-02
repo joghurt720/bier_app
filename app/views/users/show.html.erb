@@ -2,7 +2,7 @@
   <div class="container">
     <div class="user">
       <h2><%= @user.name %></h2>
-      <%= image_tag @user.image.to_s, :size => '150x150'%>
+      <%= image_tag @user.image.to_s, :size => '100x100' %>
       <% if @user.id == @current_user.id %>
         <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <% end %>
@@ -11,7 +11,7 @@
     <% @user.posts.each do |post| %>
       <div class="posts-index-item">
         <div class="post-left">
-        <%= image_tag post.user.image.to_s %>
+        <%= image_tag post.user.image.to_s, size => '150x50' %>
         </div>
         <div class="post-right">
           <div class="post-user-name">

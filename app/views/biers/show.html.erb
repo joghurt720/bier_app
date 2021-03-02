@@ -18,13 +18,9 @@
  <% @bier.posts.each do |post| %>
   <div class="d-flex text-muted pt-3">
     <%= image_tag post.user.image.to_s, class: "bd-placeholder-img flex-shrink-0 ml-2 mr-2 rounded", :size => '32x32' %>
-
     <p class="pb-3 mb-0 small lh-sm border-bottom">
       <strong class="d-block text-gray-dark">@<%= post.user.name %></strong>
-      
-      
       <%= post.content %>
-    
     </p>
     <div class="content average-score">
     <div class="star-rating mb-2">

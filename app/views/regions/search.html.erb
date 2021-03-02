@@ -2,7 +2,10 @@
   <%= @region %>についての検索結果
 </p>
 
+<ul class="list-group">
 <% @records.each do |record| %>
+  <li class="list-group-item">
   <%= link_to record.deutsch_name + "（" + record.name + "）", biers_search_path(region: record.name) %>
+  </li>
 <% end %>
 
