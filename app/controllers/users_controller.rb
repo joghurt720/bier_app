@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
+      image_name: "user.png",
       password: params[:password]
     )
     if @user.save
@@ -95,13 +96,12 @@ def verify_age
     redirect_to lands_top_path
   end
   if session[:original_path].nil?
-    session[:original_path] = request.fullpath
+     session[:original_path] = request.fullpath
   end
 end
 
 def verified
-  session[:over20] = { value: "yes", expires: 1.years.since }
-  byebug
+  session[:over20] = { value: "yes", expires: 1.minutes.since }
   redirect_to (session[:original_path] == "/users/verify_age") ? root_path : session[:original_path]
 end
 
