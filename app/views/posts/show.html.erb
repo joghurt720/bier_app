@@ -4,15 +4,14 @@
       <div class="post-user-name">
         <%= link_to(@user.name, "/users/#{@user.id}") %>
       </div>
-      <p><%= @post.content %>
-      </p>
+      <p><%= @post.content %></p>
 
       <% if @current_user.id == @user.id  %>
       <div class="post-show-edit">
        <%=link_to "編集", edit_post_path(@post) %>
       </div>
       <div class="post-show-edit">
-      <%=link_to "削除", post_path(@post), method: :delete %>
+       <%=link_to "削除", post_path(@post), method: :delete %>
      </div>
     <% end %>
   </div>

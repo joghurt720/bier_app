@@ -1,18 +1,19 @@
 <div class="row">
-<div class="col-8">
+ <div class="col-8">
   <%= image_tag @bier.image.to_s %>
-</div>
-<div class="col-4">
-  <div class="card-body d-flex flex-column m-4 align-items-start">
+ </div>
+  <div class="col-4">
+   <div class="card-body d-flex flex-column m-4 align-items-start">
       <h3 class="mb-0">
         <%= @bier.deutsch_name %>
       </h3>
       <div class="mb-1 text-muted"><%=@bier.name %></div>
       <strong class="d-inline-block mb-2 text-success"><%= @bier.prozent %></strong>
       <p class="card-text mb-auto"><%=@bier.explanation %></p>
-    </div>
-</div>
-</div>
+      </div>
+   </div>
+ </div>
+
 <div class="bg-body rounded mt-5">
   <h6 class="border-bottom pb-2 mb-0">コメント</h6>
  <% @bier.posts.each do |post| %>
